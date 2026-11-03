@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delieth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!--PRINCIPAL-->
+
+<body
+  class="bg-[linear-gradient(135deg,rgba(204,145,155,0.80),rgba(153,78,89,0.55)),url('../image/fondo.png')] bg-cover bg-center bg-no-repeat min-h-screen">
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="min-h-screen flex items-center justify-center px-4 py-8 sm:px-6">
+
+    <!-- Contenedor principal centrado -->
+    <div class="flex flex-col md:flex-row w-full max-w-5xl md:h-[580px] rounded-2xl overflow-hidden shadow-xl">
+
+      <!-- Módulo 1: Logo y frase (color 1) -->
+      <div
+        class="w-full md:w-1/2 bg-[linear-gradient(135deg,rgb(102,32,41),rgb(74,21,28))] flex flex-col items-center p-6 sm:p-8 md:p-10 text-white">
+        <div class="w-full flex items-center justify-between mb-4 md:mb-6">
+          <a href="../index.html"
+            class="bg-[#f5f5f5] rounded-full w-10 h-10 text-[#662029] flex items-center justify-center transition duration-200 hover:scale-105 ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          </a>
+        </div>
+        <img src="../image/deliethLogo.png" alt="Logo"
+          class="w-28 sm:w-40 md:w-[250px] mt-2 md:mt-6 mb-4 md:mb-6 rounded-full" />
+        <p class="text-[#ffe3e6] text-center text-base sm:text-lg md:text-xl font-medium">Disfruta de la dulzura
+          <br>que te hace feliz.
+        </p>
+      </div>
+
+      <!-- Módulo 2: Formulario de login (color 2) -->
+      <div class="w-full md:w-1/2 bg-[#f5f5f5] flex flex-col items-center justify-center p-6 sm:p-8 md:p-10">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#662029] mb-6 md:mb-10 text-center">Iniciar
+          Sesión</h2>
+        <form class="w-full max-w-xs">
+          <input type="email" placeholder="Correo electrónico"
+            class="w-full p-3 mb-4 rounded-full border border-gray-300 focus:ring-1 focus:scale-105 focus:ring-[#662029] focus:outline-none transition duration-300"
+            required />
+          <input type="password" placeholder="Contraseña"
+            class="w-full p-3 mb-6 rounded-full border border-gray-300 focus:ring-1 focus:scale-105 focus:ring-[#662029] focus:outline-none transition duration-300"
+            required />
+
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mb-4">
+            <label class="flex items-center">
+              <input type="checkbox" class="mr-2" />
+              <span class="text-sm text-gray-600 font-semibold">Recordarme</span>
+            </label>
+            <a href="#"
+              class="text-[#346880] text-sm font-semibold hover:underline cursor-pointer transition duration-200">¿Olvidaste
+              tu contraseña?</a>
+          </div>
+
+          <a href="../home/index.html"
+            class="flex w-full bg-[#662029] justify-center mt-4 text-white p-3 rounded-full font-medium hover:bg-[#4a151c] hover:-translate-y-1 transition duration-300">Ingresar</a>
+
+          <div class="mt-8 text-center">
+            <p class="text-sm text-gray-600 font-semibold">¿No tienes cuenta?
+              <a href="../register/index.html"
+                class="text-[#346880] font-semibold cursor-pointer hover:scale-105 hover:underline">Regístrate</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

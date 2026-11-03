@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delieth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!--PRINCIPAL-->
+
+<body class="min-h-screen">
+
+  <!-- HEADER (fijo, visible en toda la página al hacer scroll) -->
+  <header class="fixed h-14 top-0 inset-x-0 z-50 bg-[#f5f5f5] shadow-md shadow-[#662029]/50 backdrop-blur-md">
+    <nav class="flex h-14 items-center justify-between px-3 sm:px-6 md:px-[12vw]">
+      <!-- Logo -->
+      <span class="text-[#662029] text-xl sm:text-2xl md:text-2xl font-bold">Delieth</span>
+
+      <!-- Links  -->
+      <div class="hidden md:flex flex-wrap justify-center gap-6 md:gap-8 text-base md:text-lg font-semibold">
+        <a href="#inicio" class="inline-block text-[#662029] transition duration-200 hover:text-[#4a151c] hover:scale-105">Inicio</a>
+        <a href="#historia" class="inline-block text-[#662029] transition duration-200 hover:text-[#4a151c] hover:scale-105">Historia</a>
+        <a href="#productos" class="inline-block text-[#662029] transition duration-200 hover:text-[#4a151c] hover:scale-105">Productos</a>
+        <a href="#contacto" class="inline-block text-[#662029] transition duration-200 hover:text-[#4a151c] hover:scale-105">Contacto</a>
+      </div>
+
+      <!-- Botón hamburguesa-->
+      <button id="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none">
+        <span class="hamburger-line block w-7 h-0.5 bg-[#662029] transition duration-300"></span>
+        <span class="hamburger-line block w-7 h-0.5 bg-[#662029] transition duration-300"></span>
+        <span class="hamburger-line block w-7 h-0.5 bg-[#662029] transition duration-300"></span>
+      </button>
+    </nav>
+
+    <!-- Menú desplegable -->
+    <div id="mobile-menu"
+      class="hidden md:hidden max-w-md flex-col items-center gap-4 bg-[#f5f5f5] mx-4 rounded-xl shadow-lg py-6 text-lg font-semibold">
+      <a href="#inicio" class="text-[#662029] hover:text-[#4a151c]">Inicio</a>
+      <a href="#productos" class="text-[#662029] hover:text-[#4a151c]">Productos</a>
+      <a href="#contacto" class="text-[#662029] hover:text-[#4a151c]">Contacto</a>
+      <a href="#historia" class="text-[#662029] hover:text-[#994e59]">Historia</a>
+    </div>
+  </header>
+
+  <!-- HERO fondo original -->
+  <div id="inicio"
+    class="pt-24 bg-[linear-gradient(135deg,rgba(204,145,155,0.80),rgba(153,78,89,0.55)),url('./image/fondo.png')] bg-cover bg-center bg-no-repeat scroll-mt-24">
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const lines = menuBtn.querySelectorAll('.hamburger-line');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('flex');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+
+      // Animación: hamburguesa -> X
+      lines[0].classList.toggle('rotate-45');
+      lines[0].classList.toggle('translate-y-2');
+      lines[1].classList.toggle('opacity-0');
+      lines[2].classList.toggle('-rotate-45');
+      lines[2].classList.toggle('-translate-y-2');
+    });
+
+    // Cerrar el menú al hacer clic en un link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        lines[0].classList.remove('rotate-45', 'translate-y-2');
+        lines[1].classList.remove('opacity-0');
+        lines[2].classList.remove('-rotate-45', '-translate-y-2');
+      });
+    });
+  </script>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="min-h-[90vh] flex md:pt-16 flex-col md:flex-row items-center justify-center px-4 sm:px-10 md:px-20 gap-8 md:gap-16 lg:gap-40 text-center">
+
+    <!-- Texto -->
+    <div class="flex flex-col gap-5 sm:gap-7 md:gap-9 items-center md:items-center">
+      <h1 class="text-[#662029] text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold">Delieth <br>
+        Dulces Momentos</h1>
+      <img src="./image/deliethLogo.png" alt="Logo Delieth" class="w-40 h-40 sm:w-48 sm:h-48 md:hidden">
+      <hr class="border-[#662029] border-2 w-16 sm:w-20">
+      <p class="font-medium text-base sm:text-lg md:text-xl lg:text-2xl text-[#662029]">Disfruta nuestros deliciosos postres <br class="hidden sm:block">
+        preparados con amor <br class="hidden sm:block">
+        listos para compartir <br class="hidden sm:block">
+        momentos especiales.</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
+        <a href="./login/index.html"
+          class="bg-[#662029] text-white font-semibold py-3 px-8 rounded-xl text-center hover:scale-105 transition duration-300">
+          Iniciar Sesión
+        </a>
+        <a href="./register/index.html"
+          class="bg-[#662029] text-white font-semibold py-3 px-8 rounded-xl text-center hover:scale-105 transition duration-300">
+          Crear Cuenta
+        </a>
+      </div>
+    </div>
+
+    <!-- Logo -->
+    <img src="./image/deliethLogo.png" alt="Logo Delieth" class="hidden md:block md:w-72 md:h-72">
+
+  </main>
+
+  </div>
+
+<!-- NUESTRA HISTORIA -->
+<section id="historia" class="flex min-h-screen scroll-mt-24 bg-[#fff8f6] px-4 py-20 sm:px-10 md:px-20 md:py-24">
+  <div class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-center">
+    <div class="flex flex-col gap-5">
+      <span class="text-[#994e59] font-semibold tracking-[0.2em] uppercase text-sm">
+        Un poco sobre nosotros
+      </span>
+
+      <h2 class="text-[#662029] text-3xl sm:text-4xl md:text-5xl font-extrabold">
+        Nuestra historia
+      </h2>
+
+      <p class="text-[#4a4a4a] text-base sm:text-lg leading-relaxed">
+        Delieth nació del gusto por crear momentos especiales alrededor de algo dulce.
+        Preparamos nuestros postres con cariño, cuidando cada detalle para compartir
+        sabores que se disfrutan en buena compañía.
+      </p>
+
+      <p class="text-[#4a4a4a] text-base sm:text-lg leading-relaxed">
+        Cada cheesecake está hecho para convertir un antojo en un recuerdo delicioso.
+        Gracias por elegir Delieth y permitirnos ser parte de tus momentos especiales.
+      </p>
+
+      <a href="#productos"
+        class="mt-2 inline-flex w-fit items-center justify-center rounded-xl bg-[#662029] px-7 py-3 font-semibold text-white transition hover:bg-[#4a151c] hover:scale-105">
+        Conoce nuestros postres
+      </a>
+    </div>
+
+    <div class="rounded-3xl bg-[#fff8f6] p-6 sm:p-8 md:p-12 text-center shadow-lg shadow-[#662029]/10">
+      <img src="./image/deliethLogo.png" alt="Logo de Delieth"
+        class="mx-auto w-40 h-40 sm:w-52 sm:h-52 object-contain">
+
+    </div>
+  </div>
+</section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos"
+    class="flex flex-col justify-center bg-white min-h-screen px-4 sm:px-10 md:px-20 py-16 md:py-24 scroll-mt-24">
+    <div class="text-center flex flex-col items-center gap-2 mb-12">
+      <h2 class="text-[#662029] text-4xl sm:text-5xl font-extrabold">Nuestros Productos</h2>
+      <p class="text-[#4a4a4a] text-base sm:text-lg leading-relaxed">
+        ¿Un antojo de algo dulce?<br>
+        Nuestros postres son la combinación perfecta de sabor.<br>
+        ¡Pide ya!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+      <!-- Tarjeta de producto-->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-[#662029]/10 shadow-lg p-6 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300">
+        <img src="./image/fresa.png" alt="Cheesecake de Fresa"
+          class="w-[calc(100%+3rem)] max-w-none -mx-6 -mt-6 h-48 sm:h-52 object-cover mb-4 hover:scale-105 transition duration-300">
+        <h3 class="text-[#662029] font-bold text-xl mb-2">Cheesecake de Fresa</h3>
+        <p class="text-[#4a4a4a] text-sm flex-1">Disfruta de la dulzura de nuestro postre de fresa
+          ¡Cada bocado te hará sonreír!</p>
+        <span class="text-[#1a1a1a] font-bold text-lg mt-4">$7.000</span>
+        <a href="../login/index.html" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-xl bg-[#662029] px-6 py-2 font-semibold text-white transition hover:bg-[#4a151c]">Comprar</a>
+      </div>
+
+      <div class="bg-white rounded-2xl overflow-hidden shadow-[#662029]/10 shadow-lg p-6 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300">
+        <img src="./image/quipitos.png" alt="Cheesecake de Quipitos"
+          class="w-[calc(100%+3rem)] max-w-none -mx-6 -mt-6 h-48 sm:h-52 object-cover mb-4 hover:scale-105 transition duration-300">
+        <h3 class="text-[#662029] font-bold text-xl mb-2">Cheesecake de Quipitos</h3>
+        <p class="text-[#4a4a4a] text-sm flex-1">¡Endulza tu día con una explosión de sabor que se
+          derrite al instante!</p>
+        <span class="text-[#1a1a1a] font-bold text-lg mt-4">$7.000</span>
+        <a href="../login/index.html" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-xl bg-[#662029] px-6 py-2 font-semibold text-white transition hover:bg-[#4a151c]">Comprar</a>
+      </div>
+
+      <div class="bg-white rounded-2xl overflow-hidden shadow-[#662029]/10 shadow-lg p-6 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300">
+        <img src="./image/oreo.jpeg" alt="Cheesecake de Oreo"
+          class="w-[calc(100%+3rem)] max-w-none -mx-6 -mt-6 h-48 sm:h-52 object-cover mb-4 hover:scale-105 transition duration-300">
+        <h3 class="text-[#662029] font-bold text-xl mb-2">Cheesecake de Oreo</h3>
+        <p class="text-[#4a4a4a] text-sm flex-1">Combinamos galletas Oreo y crema suave. ¡Disfruta
+          de cada bocado y deja que la magia comience!</p>
+        <span class="text-[#1a1a1a] font-bold text-lg mt-4">$7.000</span>
+        <a href="./login/index.html" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-xl bg-[#662029] px-6 py-2 font-semibold text-white transition hover:bg-[#4a151c]">Comprar</a>
+      </div>
+
+      <div class="bg-white rounded-2xl overflow-hidden shadow-[#662029]/10 shadow-lg p-6 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300">
+        <img src="./image/limón.jpeg" alt="Cheesecake de Limón"
+          class="w-[calc(100%+3rem)] max-w-none -mx-6 -mt-6 h-48 sm:h-52 object-cover mb-4 hover:scale-105 transition duration-300">
+        <h3 class="text-[#662029] font-bold text-xl mb-2">Cheesecake de Limón</h3>
+        <p class="text-[#4a4a4a] text-sm flex-1">Disfruta de nuestro delicioso postre de limón,
+          ¡el toque ácido que necesitas!</p>
+        <span class="text-[#1a1a1a] font-bold text-lg mt-4">$7.000</span>
+        <a href="./login/index.html" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-xl bg-[#662029] px-6 py-2 font-semibold text-white transition hover:bg-[#4a151c]">Comprar</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="flex min-h-screen scroll-mt-24 bg-[#fff8f6] px-4 py-20 sm:px-10 md:px-20 md:py-24">
+    <div class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-center">
+      <div class="flex flex-col gap-5">
+        <span class="text-[#994e59] font-semibold tracking-[0.2em] uppercase text-sm">Estamos para ayudarte</span>
+        <h2 class="text-[#662029] text-3xl sm:text-4xl md:text-5xl font-extrabold">Hablemos de algo dulce</h2>
+        <p class="text-[#4a4a4a] text-base sm:text-lg leading-relaxed">¿Tienes dudas sobre nuestros postres o quieres hacer un pedido especial? Escríbenos y con gusto te atenderemos.</p>
+        <a href="https://wa.me/573229815178" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex w-fit items-center justify-center rounded-xl bg-[#662029] px-7 py-3 font-semibold text-white transition hover:bg-[#4a151c] hover:scale-105">Escríbenos</a>
+      </div>
+
+      <div class="grid gap-4">
+        <a href="mailto:delieth@gmail.com" class="group flex items-center gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-lg shadow-[#662029]/10 transition hover:-translate-y-1">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#cc9199]/25 text-[#662029]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </span>
+          <span><span class="block text-sm text-[#777]">Correo electrónico</span><span class="font-semibold text-[#662029] group-hover:underline">delieth@gmail.com</span></span>
+        </a>
+        <a href="tel:+573222365879" class="group flex items-center gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-lg shadow-[#662029]/10 transition hover:-translate-y-1">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#cc9199]/25 text-[#662029]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 8.9a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.8 2.1Z"/></svg>
+          </span>
+          <span><span class="block text-sm text-[#777]">Llámanos</span><span class="font-semibold text-[#662029] group-hover:underline">+57 322 236 5879</span></span>
+        </a>
+        <a href="https://www.instagram.com/delieth_/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-lg shadow-[#662029]/10 transition hover:-translate-y-1">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#cc9199]/25 text-[#662029]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          </span>
+          <span><span class="block text-sm text-[#777]">Síguenos en Instagram</span><span class="font-semibold text-[#662029] group-hover:underline">@delieth_</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer bg-[#662029] text-white py-8 px-4 sm:px-10 md:px-20">
+    <div class="footer-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center gap-8 mb-6 text-center">
+        <div class="flex flex-col items-center">
+            <h2 class="text-lg font-bold">Delieth</h2>
+            <p class="text-sm">Dulces momentos.</p>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex flex-col items-center">
+            <h3 class="text-lg font-bold">Explora</h3>
+            <a href="#inicio" class="text-sm hover:underline">Inicio</a>
+            <a href="#productos" class="text-sm hover:underline">Productos</a>
+            <a href="#contacto" class="text-sm hover:underline">Contacto</a>
+        </div>
+
+        <!-- Contacto -->
+        <div class="flex flex-col items-center">
+            <h3 class="text-lg font-bold"> Contacto</h3>
+            <p>📧 delieth@gmail.com</p>
+            <p>📱 +57 322 236 5879</p>
+        </div>
+
+        <!-- Redes -->
+        <div class="flex flex-col items-center">
+            <h3 class="text-lg font-bold">Síguenos</h3>
+            <div class="flex flex-col items-center gap-2 mt-2">
+                <a href="https://www.instagram.com/delieth_/" target="_blank" aria-label="Instagram">
+                    Instagram
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100077594841391" target="_blank" aria-label="Facebook">
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parte inferior -->
+    <div class="footer-bottom text-center text-sm">
+        <p class="text-sm">© 2026 Delieth. Todos los derechos reservados.</p>
+        <p class="text-sm">Desarrollado por <strong><a href="https://github.com/Maykbto" target="_blank" class="hover:underline">Maykbto</a> / <a href="https://github.com/sp-andrade" target="_blank" class="hover:underline">sp-andrade</a></strong></p>
+    </div>
+</footer>
+
+</body>
+
+</html>
